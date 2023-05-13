@@ -1,0 +1,17 @@
+{
+  "base": {
+    "logo": "",
+    "project": "amazon.com",
+    "environment": "qa.guru",
+    "comment": "UI Autotests for amazon.com",
+    "reportLink": "https://jenkins.autotests.cloud",
+    "language": "ua",
+    "allureFolder": "allure-report/",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "6281383727:AAGkfPDAj6OGTn4c4i89QojBBnrxp6Ub6qQ",
+    "chat": "-865149225",
+    "replyTo": ""
+  }
+}
