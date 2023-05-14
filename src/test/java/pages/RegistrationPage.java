@@ -2,6 +2,9 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.appear;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -14,6 +17,7 @@ public class RegistrationPage {
     private SelenideElement setPassword = $("#ap_password");
     private SelenideElement setPasswordCheck = $("#ap_password_check");
     private SelenideElement pressSubmit = $("#continue");
+    private SelenideElement results = $(".a-row a-spacing-small");
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -50,14 +54,17 @@ public class RegistrationPage {
         pressSubmit.click();
         return this;
     }
+
+    public RegistrationPage resultsModal() {
+        results.should(appear);
+        results.shouldHave(text("Verify email address"));
+        return this;
+    }
+
     public RegistrationPage verifyResults(String key, String value) {
-        registrationsResultsModal.verifyResult(key, value);
-
+        $(".a-box a-spacing-extra-large").$(byText(key)).parent()
+                .shouldHave(text(value));
         return this;
     }
 
-    public RegistrationPage verifyResultsModalAppears() {
-        registrationsResultsModal.verifyModalAppears();
-        return this;
-    }
 }

@@ -4,7 +4,6 @@ import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
 public class RegistrationTest extends TestBase {
@@ -27,11 +26,14 @@ public class RegistrationTest extends TestBase {
                     .pressSubmit();
         });
         step("Проверить корректность заполнения данных в таблице", () -> {
-            registrationPage.verifyResultsModalAppears()
-                    .verifyResults("Student Name", name + " " + lastName)
-                    .verifyResults("Student Email", email);
+            registrationPage.verifyResults("Your name", name)
+                    .verifyResults("Mobile number or email", email)
+                    .verifyResults("Password",password)
+                    .verifyResults("Re-enter password",password);
 
-            $(".a-row a-spacing-small")
-            "Verify email address"
         });
-    }}
+        step(" Проверить результат", () -> {
+            registrationPage.resultsModal();
+        });
+    }
+}

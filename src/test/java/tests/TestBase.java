@@ -9,11 +9,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import pages.AuthorizationPage;
 import pages.RegistrationPage;
 
 public class TestBase {
     public RegistrationPage registrationPage = new RegistrationPage();
-
+    public AuthorizationPage authorizationPage = new AuthorizationPage;
 
     @BeforeAll
     static void beforeAll() {
