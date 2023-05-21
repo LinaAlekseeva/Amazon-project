@@ -13,19 +13,21 @@ import org.openqa.selenium.Cookie;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.AuthorizationPage;
 import pages.RegistrationPage;
+import pages.SearchPage;
 
 public class TestBase {
     public RegistrationPage registrationPage = new RegistrationPage();
     public AuthorizationPage authorizationPage = new AuthorizationPage();
+    public SearchPage searchPage = new SearchPage();
     @BeforeAll
     static void beforeAll() {
-        Cookie ck = new Cookie("langcookie", "ru");
-        WebDriverRunner.getWebDriver().manage().addCookie(ck);
         Configuration.baseUrl = System.getProperty("baseUrl", "https://www.amazon.com/");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
         Configuration.remote = System.getProperty("remote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        Cookie ck = new Cookie("langcookie", "ru");
+        WebDriverRunner.getWebDriver().manage().addCookie(ck);
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
@@ -35,7 +37,6 @@ public class TestBase {
     void addListenerAndOpenPage() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
-
 
     @AfterEach
     void addAttachments() {

@@ -1,11 +1,17 @@
 package tests;
 
 import com.github.javafaker.Faker;
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
-
+@Epic("Registration")
+@Owner("Lina Alekseeva")
+@Severity(SeverityLevel.CRITICAL)
+@Story("Successful registration")
+@DisplayName("Registration check with correct credentials")
 public class RegistrationTest extends TestBase {
     Faker faker = new Faker();
 
