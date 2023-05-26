@@ -44,3 +44,21 @@ tasks.withType(Test) {
     systemProperties(System.getProperties())
 
 }
+task Registration_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("Registration")
+    }
+    systemProperties(System.getProperties())
+}
+task Login_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("Login")
+    }
+    systemProperties(System.getProperties())
+}
+task SearchAndBasket_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("SearchAndBasket")
+    }
+    systemProperties(System.getProperties())
+}

@@ -13,6 +13,9 @@ public class SearchPage {
     private SelenideElement searchButton= $("#nav-search-submit-button");
     private SelenideElement resultsList = $(".sg-col-inner");
     private SelenideElement verifyTitle = $("#title_feature_div");
+    private SelenideElement addButton = $(".a-button-stack");
+    private SelenideElement addButtonInner = $(".a-button-inner");
+    private SelenideElement closeDisplay= $("#aod-close");
     public void openPage() {
         open("https://www.amazon.com/");
 
@@ -31,13 +34,17 @@ public class SearchPage {
     }
 
 
-
     public SearchPage verifyResults (String name) {
         resultsList.$(byText(name)).click();
         verifyTitle.shouldHave(text(name));
         return this;
     }
-
+    public SearchPage addBasket () {
+        addButton.click();
+        addButtonInner.click();
+        closeDisplay.click();
+        return this;
+    }
 
 
 }

@@ -3,12 +3,13 @@ package tests;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static io.qameta.allure.Allure.step;
-
+@Tag("SearchAndBasket ")
 @Epic("Search and adding to basket ")
 @Feature("Search a item by typing")
 @Owner("Lina Alekseeva")
@@ -34,8 +35,9 @@ public class SearchTest extends TestBase{
             searchPage.dropdownBox(itemType)
                     .setName(itemName);
         });
-        step(" Проверить результат", () -> {
-            searchPage.verifyResults(itemName);
+        step(" Проверить результат и добавить в корзину", () -> {
+            searchPage.verifyResults(itemName)
+                    .addBasket();
         });
     }
 }
