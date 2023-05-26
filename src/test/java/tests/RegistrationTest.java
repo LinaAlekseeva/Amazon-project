@@ -11,7 +11,7 @@ import static io.qameta.allure.Allure.step;
 @Owner("Lina Alekseeva")
 @Severity(SeverityLevel.CRITICAL)
 @Story("Successful registration")
-@DisplayName("Registration check with correct credentials")
+@DisplayName(value = "Registration check with correct credentials")
 public class RegistrationTest extends TestBase {
     Faker faker = new Faker();
 

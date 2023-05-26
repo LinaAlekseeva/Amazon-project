@@ -15,10 +15,11 @@ import pages.AuthorizationPage;
 import pages.RegistrationPage;
 import pages.SearchPage;
 
-public class TestBase {
+public abstract class TestBase {
     public RegistrationPage registrationPage = new RegistrationPage();
     public AuthorizationPage authorizationPage = new AuthorizationPage();
     public SearchPage searchPage = new SearchPage();
+
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = System.getProperty("baseUrl", "https://www.amazon.com/");
@@ -33,6 +34,7 @@ public class TestBase {
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
     }
+
     @BeforeEach
     void addListenerAndOpenPage() {
         SelenideLogger.addListener("allure", new AllureSelenide());
