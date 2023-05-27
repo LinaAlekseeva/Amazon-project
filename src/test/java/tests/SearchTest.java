@@ -37,7 +37,8 @@ public class SearchTest extends TestBase{
         });
         step(" Проверить результат и добавить в корзину", () -> {
             searchPage.verifyResults(itemName)
-                    .addBasket();
+                    .addBasket()
+                    .checkBasket(itemName);
         });
     }
 }

@@ -16,6 +16,8 @@ public class SearchPage {
     private SelenideElement addButton = $(".a-button-stack");
     private SelenideElement addButtonInner = $(".a-button-inner");
     private SelenideElement closeDisplay= $("#aod-close");
+    private SelenideElement check =$("#nav-cart-count-container");
+    private SelenideElement checkName = $("#activeCartViewForm");
     public void openPage() {
         open("https://www.amazon.com/");
 
@@ -45,6 +47,10 @@ public class SearchPage {
         closeDisplay.click();
         return this;
     }
-
+    public SearchPage checkBasket (String name) {
+        check.click();
+        checkName.shouldHave(text(name));
+        return this;
+    }
 
 }
