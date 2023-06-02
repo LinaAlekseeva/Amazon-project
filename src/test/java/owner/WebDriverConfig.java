@@ -1,30 +1,30 @@
 package owner;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
+import org.aeonbits.owner.Config;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+@Config.Sources({
+        "classpath:${env}.properties"
+})
+public interface WebDriverConfig extends Config {
 
-public class WebDriverConfig {
-    private WebDriver driver;
+    @Key("browserName")
+    @DefaultValue("CHROME")
+    String getBrowserName();
 
-    @BeforeEach
-    public void startDriver() {
-        driver = new WebDriverProvider().get();
-    }
+    @Key("browserVersion")
+    String getBrowserVersion();
 
-    @Test
-    public void testGithub() {
-        String title = driver.getTitle();
-        assertEquals("GitHub: Where the world builds software · GitHub", title);
-    }
+    @Key("baseUrl")
+    @DefaultValue("https://www.amazon.com/")
+    String getBaseUrl();
 
-    @AfterEach
-    public void stopDriver() {
-        driver.quit();
-    }
+    @Key("RemoteWebDriver")
+    @DefaultValue("true")
+    Boolean getRemoteWebDriver();
 
+    @Key("remoteUrl")
+    @DefaultValue("https://localhost:4444/wd/hub")
+    String getRemoteUrl();
 }
+
 
