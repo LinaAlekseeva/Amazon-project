@@ -10,6 +10,4 @@ public interface TypeConfig extends Config {
     @Key("testVersion")
     Integer testVersion();
 
-
-
 }
