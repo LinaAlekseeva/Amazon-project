@@ -20,7 +20,7 @@ public class RegistrationPage {
     private SelenideElement results = $(".a-row a-spacing-small");
 
     public RegistrationPage openPage() {
-        open("https://www.amazon.com/");
+        open("/");
         open.click();
         createAccount.click();
         return this;

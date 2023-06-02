@@ -16,7 +16,7 @@ public class AuthorizationPage {
     private SelenideElement skipLink = $("#ap-account-fixup-phone-skip-link");
     private SelenideElement check = $(".a-box-inner");
     public AuthorizationPage openPage() {
-        open("https://www.amazon.com/");
+        open("/");
         open.click();
         return this;
     }
