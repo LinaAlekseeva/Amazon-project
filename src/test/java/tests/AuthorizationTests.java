@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
-@Tag("Login")
-@Epic("Login")
+@Tag("Authorization")
+@Epic("Authorization")
 @Owner("Lina Alekseeva")
 @Severity(SeverityLevel.CRITICAL)
 @Story("Successful authorization")
