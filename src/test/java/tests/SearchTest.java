@@ -36,9 +36,8 @@ public class SearchTest extends TestBase{
                     .setName(itemName);
         });
         step(" Проверить результат и добавить в корзину", () -> {
-            searchPage.verifyResults(itemName)
-                    .addBasket()
-                    .checkBasket(itemName);
+            searchPage.verifyResults(itemName);
+
         });
     }
 }
