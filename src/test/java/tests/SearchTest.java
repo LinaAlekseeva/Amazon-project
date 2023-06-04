@@ -14,7 +14,7 @@ import static io.qameta.allure.Allure.step;
 @Feature("Search a item by typing")
 @Owner("Lina Alekseeva")
 @Severity(SeverityLevel.CRITICAL)
-@DisplayName("Search for google pixel 7 pro")
+@DisplayName("Search")
 public class SearchTest extends TestBase{
     @BeforeEach
     public void beforeEach() {

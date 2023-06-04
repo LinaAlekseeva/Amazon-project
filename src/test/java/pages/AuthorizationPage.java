@@ -10,7 +10,7 @@ public class AuthorizationPage {
 
     private SelenideElement open = $("#nav-link-accountList");
     private SelenideElement apEmail = $("#ap_email");
-    private SelenideElement continuePasswd= $("#continue-announce");
+    private SelenideElement continuePasswd= $(".a-button-inner");
     private SelenideElement passwdField = $("#ap_password");
     private SelenideElement signIn = $("#signInSubmit");
     private SelenideElement skipLink = $("#ap-account-fixup-phone-skip-link");

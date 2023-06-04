@@ -56,7 +56,7 @@ task Registration_test(type: Test) {
 }
 task Login_test(type: Test) {
     useJUnitPlatform {
-        includeTags("Login")
+        includeTags("Authorization")
     }
     systemProperties(System.getProperties())
 }
