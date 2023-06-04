@@ -22,6 +22,21 @@
 &#8287;&#8287;&#8287;&#8287;&#8287;
 ## :heavy_check_mark: Description
 
+> In this project, autotests are written in  <code>Java</code> using frameworks <code>Selenide</code> for UI-tests.
+>
+> <code>Selenoid</code> runs the application on a remote server in containers <code>Docker</code>.
+>
+> <code>JUnit 5</code> used for unit testing
+>
+> <code>Gradle</code> used for automated project build
+>
+> <code>Jenkins</code> runs tests
+>
+> <code>Allure Report</code> generates a test run report
+>
+Autotests are integrated with the test management system <code>Allure TestOps</code> and task tracker system <code>Jira</code>
+>
+> Notifications about the completed run are sent to <code>Telegram</code> using the library [allure-notifications](https://github.com/qa-guru/allure-notifications)
 
 ## :heavy_check_mark: Tested functionality
 > -
