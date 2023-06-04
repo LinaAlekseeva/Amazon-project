@@ -40,10 +40,10 @@ Autotests are integrated with the test management system <code>Allure TestOps</c
 
 ## :heavy_check_mark: Tested functionality
 > - Checking the display of the correct title
+> - Changing locale
+> - Authorization
 > - Changing search categories
 > - Searching from products and fetching results
-> - Changing locale
-
 
 
 &#8287;&#8287;&#8287;&#8287;&#8287;
