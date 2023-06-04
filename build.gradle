@@ -37,6 +37,7 @@ dependencies {
             'org.aeonbits.owner:owner:1.0.4'
 
     )
+    testImplementation 'junit:junit:4.13.1'
 }
 test {
     useJUnitPlatform {
@@ -48,9 +49,21 @@ tasks.withType(Test) {
     systemProperties(System.getProperties())
 
 }
+task Registration_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("Registration")
+    }
+    systemProperties(System.getProperties())
+}
+task Login_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("Authorization")
+    }
+    systemProperties(System.getProperties())
+}
 task SearchAndBasket_test(type: Test) {
     useJUnitPlatform {
-        includeTags("Search")
+        includeTags("SearchAndBasket")
     }
     systemProperties(System.getProperties())
 }

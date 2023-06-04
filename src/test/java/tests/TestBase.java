@@ -11,14 +11,18 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import owner.WebDriverConfig;
+import pages.AuthorizationPage;
+import pages.RegistrationPage;
 import pages.SearchPage;
 
-public abstract class TestBase {
+public class TestBase {
+
+    public RegistrationPage registrationPage = new RegistrationPage();
+    public AuthorizationPage authorizationPage = new AuthorizationPage();
     public SearchPage searchPage = new SearchPage();
 
     @BeforeAll
     static void beforeAll() {
-
         WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
         Configuration.baseUrl = config.getBaseUrl();
         Selenide.clearBrowserCookies();
@@ -46,6 +50,6 @@ public abstract class TestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
-        Selenide.closeWebDriver();
+        Selenide.closeWindow();
     }
 }

@@ -21,7 +21,7 @@ public class TypeTest {
         System.setProperty("testVersion", "100.0");
 
         TypeConfig config = ConfigFactory.create(TypeConfig.class, System.getProperties());
-        assertThat(config.testVersion()).isEqualTo(112.0);
+        assertThat(config.testVersion()).isEqualTo(100.0);
     }
 }
 

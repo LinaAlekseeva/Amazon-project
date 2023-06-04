@@ -26,7 +26,6 @@ public class AuthorizationPage {
         return this;
     }
     public AuthorizationPage inputEmail () {
-        apEmail.click();
         apEmail.sendKeys("testemailforjob153@gmail.com");
         continuePasswd.click();
         return this;

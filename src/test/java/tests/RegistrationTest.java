@@ -2,6 +2,7 @@ package tests;
 
 import com.github.javafaker.Faker;
 import io.qameta.allure.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -17,8 +18,8 @@ public class RegistrationTest extends TestBase {
     Faker faker = new Faker();
 
     @Test
-    @Tag("faker")
-    void RegistrationForm() {
+    @Tag("Registration")
+    void RegistrationForm()  {
         String name = faker.name().firstName(),
                 email = faker.internet().emailAddress(),
                 password = faker.internet().password();
@@ -42,5 +43,10 @@ public class RegistrationTest extends TestBase {
         step(" Проверить результат", () -> {
             registrationPage.resultsModal();
         });
+        Assertions.fail("Registration is possible under certain conditions");
+        Assertions.fail(RegistrationTest::message);
+}
+    private static String message () {
+        return "Registration is possible under certain conditionss";
     }
 }
