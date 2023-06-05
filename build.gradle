@@ -1,7 +1,15 @@
 plugins {
-    id 'java-library'
-    id 'io.qameta.allure' version '2.11.2'
+    id 'java'
+    id('io.qameta.allure') version '2.11.2'
 }
+
+group 'ru.maruspim'
+version '1.0-SNAPSHOT'
+
+def selenideVersion = "6.13.0",
+    jUnitVersion = "5.9.3",
+    slf4jVersion = "2.0.7",
+    jetbrainsVersion = "23.0.0"
 
 allure {
     report {
@@ -17,27 +25,26 @@ allure {
     }
 }
 
+
 repositories {
     mavenCentral()
 }
-
-compileTestJava {
-    options.encoding = 'UTF-8'
-}
-
 dependencies {
     testImplementation(
-            'com.codeborne:selenide:6.10.3',
-            'org.junit.jupiter:junit-jupiter:5.9.1',
-            'com.github.javafaker:javafaker:0.12',
-            'org.slf4j:slf4j-simple:2.0.6',
-            'io.qameta.allure:allure-selenide:2.20.1',
-            'io.github.bonigarcia:webdrivermanager:5.2.1',
-            'org.assertj:assertj-core:3.23.1',
-            'org.aeonbits.owner:owner:1.0.4'
-
+            "com.codeborne:selenide:$selenideVersion",
+            "org.junit.jupiter:junit-jupiter:$jUnitVersion",
+            "org.slf4j:slf4j-simple:$slf4jVersion",
+            "org.seleniumhq.selenium:selenium-java:3.141.59",
+            "org.junit.jupiter:junit-jupiter-api:5.8.1",
+            "io.github.bonigarcia:webdrivermanager:5.2.1",
+            "org.aeonbits.owner:owner:1.0.12",
+            "org.assertj:assertj-core:3.24.2"
     )
-    testImplementation 'junit:junit:4.13.1'
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.8.1')
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
 }
 test {
     useJUnitPlatform {
@@ -49,21 +56,10 @@ tasks.withType(Test) {
     systemProperties(System.getProperties())
 
 }
-task Registration_test(type: Test) {
+
+task Search_test(type: Test) {
     useJUnitPlatform {
-        includeTags("Registration")
-    }
-    systemProperties(System.getProperties())
-}
-task Login_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("Authorization")
-    }
-    systemProperties(System.getProperties())
-}
-task SearchAndBasket_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("SearchAndBasket")
+        includeTags("Search")
     }
     systemProperties(System.getProperties())
 }

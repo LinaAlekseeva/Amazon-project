@@ -1,4 +1,4 @@
 package tests;
 
-public class TitleCheck {
+public class TitleCheck extends TestBase {
 }
