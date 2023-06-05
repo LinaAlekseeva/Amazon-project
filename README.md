@@ -39,11 +39,10 @@ Autotests are integrated with the test management system <code>Allure TestOps</c
 > Notifications about the completed run are sent to <code>Telegram</code> using the library [allure-notifications](https://github.com/qa-guru/allure-notifications)
 
 ## :heavy_check_mark: Tested functionality
-> - Checking the display of the correct title
-> - Changing locale
-> - Authorization
-> - Changing search categories
+> - Checking the display of the correct navbar (Changing locale, language 
 > - Searching from products and fetching results
+> - Changing search categories
+
 
 
 &#8287;&#8287;&#8287;&#8287;&#8287;
