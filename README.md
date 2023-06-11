@@ -4,11 +4,15 @@
 ## :open_book: Summary:
 - [Technologies and tools](#gear-Technologies-and-Tools-used-in-the-project)
 - [Description](#heavy_check_mark-Description)
-- [Running tests using Jenkins](#-Running-tests-using-Jenkins)
-- [Running tests locally](#computer-Running-tests-locally)
 - [Analytics and Reports](#bar_chart-Analytics-and-Reports)
-  - [Allure](#-allure)
-  - [Telegram](#-telegram)
+  - [Running tests from the terminal](#computer-running-tests-from-the-terminal)
+  - [Running tests in Jenkins](#-running-tests-in-jenkins)
+  - [Test results report in Allure Report](#-test-results-report-in-allure-report)
+  - [Integration with Allure TestOps](#-integration-with-allure-testops)
+  - [Integration with Jira](#-integration-with-jira)
+  - [Telegram notifications using a bot](#-telegram-notifications-using-a-bot)
+  - [Test running example in Selenoid](#-test-running-example-in-selenoid)
+
 
 &#8287;&#8287;&#8287;&#8287;&#8287;
 ## :gear: Technologies and Tools used in the project
@@ -47,3 +51,76 @@ Autotests are integrated with the test management system <code>Allure TestOps</c
 
 &#8287;&#8287;&#8287;&#8287;&#8287;
 ## :bar_chart: Analytics and Reports
+## :computer: Running tests from the terminal
+
+### Local running tests
+
+```bash
+gradle clean test
+```
+
+### Remote running tests
+
+```bash
+gradle clean test
+-Dbrowser=${BROWSER}
+-DbrowserVersion=${BROWSER_VERSION}
+-DbrowserSize=${BROWSER_SIZE}
+-Dremote=${SERVER_REMOTE}
+```
+
+## <img width="4%" title="Jenkins" src="media/logo/Jenkins_logo.svg"> Running tests in [Jenkins]( )
+
+First you need to click on the <code><strong>*Collect with parameters*</strong></code> button and set options. By clicking on the <code><strong>*Collect*</strong></code> button a build will be started.
+
+<p align="center">
+  <img src="media/jenkins.png" alt="Jenkins" width="800">
+</p>
+
+After build is completed, in the <code><strong>*Builds history*</strong></code> opposite the build number will appear
+the *Allure Report* icon, clicking on which will open the page with the generated html-report.
+
+<p align="center">
+  <img src=" " alt="allure-report" width="800">
+</p>
+
+## <img width="4%" title="Allure Report" src=" "> Test results report in [Allure Report]( )
+
+<p align="center">
+  <img src=" " alt="allure-report1" width="900">
+</p>
+
+## <img width="4%" title="Allure TestOPS" src=" "> Integration with [Allure TestOps]( )
+
+## Main dashboard
+
+<p align="center">
+  <img src=" " alt="dashboard" width="900">
+</p>
+
+## Test results
+
+<p align="center">
+  <img src=" " alt="testresults" width="900">
+</p>
+
+## <img width="4%" title="Jira" src="media/logo/Jira.svg"> Integration with [Jira]( )
+
+<p align="center">
+  <img src=" " alt="jira" width="900">
+</p>
+
+## <img width="4%" title="Telegram" src=" "> Telegram notifications using a bot
+After the build is completed, a special bot created in <code>Telegram</code>, automatically processes and sends a test run report message.
+
+<p align="center">
+<img title="Telegram Notifications" src=" ">
+</p>
+
+## <img width="4%" title="Selenoid" src=" "> Test running example in Selenoid
+
+A video is attached to each test in the report.
+
+<p align="center">
+  <img title="Selenoid Video" src=" ">
+</p>
