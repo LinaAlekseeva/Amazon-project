@@ -1,4 +1,4 @@
-<h1 align="center">Web UI automation project for amazon marketplace <a href="https://en.wikipedia.org/" target="_blank"><img src=" " width="300" height="100" alt="Logo"/></a></h1>
+<h1 align="center"> Graduation project which includes UI,API, Mobile Autotests for wikipedia <a href="https://en.wikipedia.org/" target="_blank"><img src=" " width="300" height="100" alt="Logo"/></a></h1>
 
 &#8287;&#8287;&#8287;&#8287;&#8287;
 ## :open_book: Summary:
