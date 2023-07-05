@@ -1,5 +1,5 @@
 package tests;
-
+import io.qameta.allure.selenide.AllureSelenide;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -11,6 +11,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.SearchPage;
+
+import static com.codeborne.selenide.Selenide.open;
+
 public class TestBase {
 
     public SearchPage searchPage = new SearchPage();
@@ -37,6 +40,7 @@ public class TestBase {
     @BeforeEach
     void addListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        open();
     }
 
     @AfterEach

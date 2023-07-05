@@ -20,7 +20,7 @@ public class SearchPage {
     private SelenideElement checkName = $("#activeCartViewForm");
 
     public void openPage() {
-        open("https://www.amazon.com/");
+        open("https://www.amazon.com");
 
     }
 

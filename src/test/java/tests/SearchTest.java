@@ -9,7 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static io.qameta.allure.Allure.step;
-@Tag("SearchAndBasket ")
+@Tag("Search")
 @Epic("Search and adding to basket ")
 @Feature("Search a item by typing")
 @Owner("Lina Alekseeva")
@@ -20,14 +20,13 @@ public class SearchTest extends TestBase{
     public void beforeEach() {
         searchPage.openPage();
     }
-    @Test
+    @ParameterizedTest(name = "{arguments}")
     @CsvSource(value = {
             "Health & Household | Vitamin B12",
             "Books | Fyodor Dostoyevsky: The Complete Novels",
             "Home & Kitchen | Blender",
             "Baby | Pacifier ",
     }, delimiter = '|')
-    @ParameterizedTest(name = "{arguments}")
     void SearchTestForm(String itemType, String itemName) {
         Allure.getLifecycle().updateTestCase(test ->
                         test.setName("An existing item can be found with filter: [Filter, Search text]"));
