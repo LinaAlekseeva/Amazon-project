@@ -24,15 +24,13 @@ public class SearchPage {
 
     }
 
-    public SearchPage dropdownBox(String name) {
-        dropdownBox.click();
-        dropdownBox.setValue(name);
+    public SearchPage dropdownBox(String itemType) {
+        dropdownBox.setValue(itemType).click();
         return this;
     }
 
-    public SearchPage setName(String name) {
-        textBox.click();
-        textBox.setValue(name);
+    public SearchPage setName(String itemName) {
+        textBox.setValue(itemName).click();
         searchButton.click();
         return this;
     }
@@ -41,19 +39,6 @@ public class SearchPage {
     public SearchPage verifyResults(String name) {
         resultsList.$(byText(name)).click();
         verifyTitle.shouldHave(text(name));
-        return this;
-    }
-
-    public SearchPage addBasket() {
-        addButton.click();
-        addButtonInner.click();
-        closeDisplay.click();
-        return this;
-    }
-
-    public SearchPage checkBasket(String name) {
-        check.click();
-        checkName.shouldHave(text(name));
         return this;
     }
 

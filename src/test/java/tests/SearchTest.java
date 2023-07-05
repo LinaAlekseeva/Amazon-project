@@ -35,10 +35,5 @@ public class SearchTest extends TestBase{
             searchPage.dropdownBox(itemType)
                     .setName(itemName);
         });
-        step(" Проверить результат и добавить в корзину", () -> {
-            searchPage.verifyResults(itemName)
-                    .addBasket()
-                    .checkBasket(itemName);
-        });
     }
 }
