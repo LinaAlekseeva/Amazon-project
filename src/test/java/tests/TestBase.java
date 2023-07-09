@@ -10,6 +10,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import pages.LanguagePage;
 import pages.SearchPage;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -17,7 +18,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class TestBase {
 
     public SearchPage searchPage = new SearchPage();
-
+    public LanguagePage languagePage = new LanguagePage();
     @BeforeAll
     static void beforeAll() {
 
@@ -40,7 +41,7 @@ public class TestBase {
     @BeforeEach
     void addListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        open();
+        open("https://www.amazon.com");
     }
 
     @AfterEach

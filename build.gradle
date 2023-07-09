@@ -70,9 +70,15 @@ test {
     }
 }
 
-task Search_test(type: Test) {
+task search_test(type: Test) {
     useJUnitPlatform {
-        includeTags("Search")
+        includeTags("search")
+    }
+    systemProperties(System.getProperties())
+}
+task language_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("language")
     }
     systemProperties(System.getProperties())
 }

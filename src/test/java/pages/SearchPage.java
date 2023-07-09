@@ -36,7 +36,7 @@ public class SearchPage {
     }
 
 
-    public SearchPage verifyResults(String name) {
+    public SearchPage OpenMenu(String name) {
         resultsList.$(byText(name)).click();
         verifyTitle.shouldHave(text(name));
         return this;
