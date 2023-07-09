@@ -25,8 +25,6 @@ public class TestBase {
         WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
 
         Configuration.baseUrl = config.getBaseUrl();
-        Configuration.baseUrl = config.getBaseUrl();
-        Configuration.baseUrl = config.getBaseUrl();
         Configuration.browser = config.getBrowser();
         Configuration.browserVersion = config.getBrowserVersion();
 

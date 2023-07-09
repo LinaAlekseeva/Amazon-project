@@ -3,10 +3,11 @@ package tests;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
 
-public class LanguageСhange extends TestBase {
+public class Language extends TestBase {
     @Test
     @Tag("language")
     void changeSettings() {
