@@ -1,14 +1,13 @@
 plugins {
     id 'java-library'
     id 'io.qameta.allure' version '2.10.0'
-    id "io.freefair.lombok" version "6.0.0-m2"
 }
 
 repositories {
     mavenCentral()
 }
 
-def allureVersion = "2.20.0"
+def allureVersion = '2.21.0'
 
 allure {
     report {
@@ -26,27 +25,13 @@ allure {
 
 dependencies {
     testImplementation(
-            "com.codeborne:selenide:6.11.2",
+            'com.codeborne:selenide:6.12.3',
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "io.appium:java-client:8.3.0",
-            "io.rest-assured:rest-assured:5.3.0",
-            "io.qameta.allure:allure-rest-assured:$allureVersion",
-            'org.projectlombok:lombok:1.18.22',
-            "com.github.javafaker:javafaker:1.0.2",
             "org.junit.jupiter:junit-jupiter:5.9.2",
             "org.slf4j:slf4j-simple:2.0.6",
-            'org.aeonbits.owner:owner-java8:1.0.12',
-            'io.github.bonigarcia:webdrivermanager:5.3.2'
-    )
+            "org.aeonbits.owner:owner-java8:1.0.12"
 
-    testCompileOnly(
-            "org.projectlombok:lombok:1.18.24"
     )
-
-    testAnnotationProcessor(
-            "org.projectlombok:lombok:1.18.24"
-    )
-
 }
 
 tasks.withType(JavaCompile) {
@@ -64,21 +49,27 @@ tasks.withType(Test) {
         }
     }
 }
-test {
-    useJUnitPlatform {
-        systemProperties(System.getProperties())
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
     }
+}
+test {
+    useJUnitPlatform()
 }
 
 task search_test(type: Test) {
     useJUnitPlatform {
         includeTags("search")
     }
-    systemProperties(System.getProperties())
 }
 task language_test(type: Test) {
     useJUnitPlatform {
         includeTags("language")
     }
-    systemProperties(System.getProperties())
 }

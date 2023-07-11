@@ -17,7 +17,7 @@ import static io.qameta.allure.Allure.step;
 public class SearchTest extends TestBase {
     @BeforeEach
     public void beforeEach() {
-        open("https://www.amazon.com");
+        open("");
     }
 
     @ParameterizedTest
@@ -31,8 +31,6 @@ public class SearchTest extends TestBase {
     void searchTestForm(
             String itemType,
             String itemName) {
-        Allure.getLifecycle().updateTestCase(test ->
-                test.setName("An existing item can be found with filter: [Filter, Search text]"));
         step("Заполнить поля формы и нажать кнопку", () -> {
             searchPage
                     .dropdownBox(itemType)
