@@ -19,6 +19,10 @@ public class TestBase {
 
     public SearchPage searchPage = new SearchPage();
     public LanguagePage languagePage = new LanguagePage();
+    String deutsch = " Deutsch - ";
+    String zh = " 中文 (简体) - ";
+    String español =" español - ";
+    String english =" English ";
     @BeforeAll
     static void beforeAll() {
 

@@ -22,12 +22,10 @@ public class SearchTest extends TestBase {
 
     @ParameterizedTest
     @CsvSource({
-            "Health&Household, Vitamin B12",
+            "Health & Household, Vitamin B12",
             "Books, Fyodor Dostoyevsky: The Complete Novels",
-            "Home&Kitchen, Blender",
+            "Home & Kitchen, Blender",
             "Baby, Pacifier "})
-
-    @Tags({@Tag("BLOCKER"), @Tag("UI_TEST")})
     void searchTestForm(
             String itemType,
             String itemName) {

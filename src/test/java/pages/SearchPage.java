@@ -10,26 +10,19 @@ import static com.codeborne.selenide.Selenide.open;
 public class SearchPage {
     private SelenideElement textBox = $("#twotabsearchtextbox");
     private SelenideElement dropdownBox = $("#searchDropdownBox");
+    private SelenideElement box = $ ("#nav-search-bar-form");
     private SelenideElement searchButton = $("#nav-search-submit-button");
     private SelenideElement resultsList = $(".sg-col-inner");
     private SelenideElement verifyTitle = $("#title_feature_div");
-    private SelenideElement addButton = $(".a-button-stack");
-    private SelenideElement addButtonInner = $(".a-button-inner");
-    private SelenideElement closeDisplay = $("#aod-close");
-    private SelenideElement check = $("#nav-cart-count-container");
-    private SelenideElement checkName = $("#activeCartViewForm");
-
-    public void openPage() {
-        open("https://www.amazon.com");
-
-    }
 
     public SearchPage dropdownBox(String itemType) {
-        dropdownBox.setValue(itemType).click();
+        dropdownBox.click();
+        box.shouldHave(text(itemType)).click();
         return this;
     }
 
     public SearchPage setName(String itemName) {
+        textBox.click();
         textBox.setValue(itemName).click();
         searchButton.click();
         return this;

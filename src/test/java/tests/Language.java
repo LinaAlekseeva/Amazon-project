@@ -14,7 +14,8 @@ public class Language extends TestBase {
         step("Change language in settings", () -> {
             open(" ");
             languagePage.menu()
-                    .language();
+                    .language(deutsch)
+                    ;
         });
     }
 }
