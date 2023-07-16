@@ -14,6 +14,9 @@ import pages.AuthorizationPage;
 import pages.LanguagePage;
 import pages.SearchPage;
 
+import java.util.Map;
+
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
@@ -27,33 +30,38 @@ public class TestBase {
     String password = "cZ96X3!!!";
     @BeforeAll
     static void beforeAll() {
-
         WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
-
+        Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = config.getBaseUrl();
         Configuration.browser = config.getBrowser();
         Configuration.browserVersion = config.getBrowserVersion();
+        Configuration.browserSize = config.getBrowserSize();
+        Configuration.timeout = 10000;
 
-        if (config.isRemoteWebDriver()) {
+        if (config.getRemoteURL() != null) {
             Configuration.remote = config.getRemoteURL();
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                    "enableVNC", true,
+                    "enableVideo", true
+            ));
+            Configuration.browserCapabilities = capabilities;
         }
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-        Configuration.browserCapabilities = capabilities;
     }
+
     @BeforeEach
-    void addListener() {
+    void addBefore() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        open("https://www.amazon.com");
+        Selenide.clearBrowserCookies();
     }
 
     @AfterEach
-    void addAttachments() {
+    void addAfter() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
-        Selenide.closeWindow();
+        closeWebDriver();
     }
+
 }

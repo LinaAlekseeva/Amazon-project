@@ -4,23 +4,26 @@ import org.aeonbits.owner.Config;
 @Config.Sources({
         "classpath:${environment}.properties"
 })
-public interface WebDriverConfig extends Config {
-    @Key("browser")
-    @DefaultValue("CHROME")
-    String getBrowser();
 
-    @Key("browserVersion")
-    String getBrowserVersion();
+public interface WebDriverConfig extends Config {
 
     @Key("baseUrl")
     @DefaultValue("https://www.amazon.com")
     String getBaseUrl();
 
-    @Key("isRemoteWebDriver")
-    @DefaultValue("false")
-    Boolean isRemoteWebDriver();
+    @Key("browser")
+    @DefaultValue("chrome")
+    String getBrowser();
 
-    @Key("remoteURL")
+    @Key("browserVersion")
+    @DefaultValue("100.0")
+    String getBrowserVersion();
+
+    @Key("browserSize")
+    @DefaultValue("1920x1080")
+    String getBrowserSize();
+
+    @Key("remoteUrl")
     String getRemoteURL();
 
 }
