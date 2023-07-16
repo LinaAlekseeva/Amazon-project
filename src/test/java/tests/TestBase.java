@@ -10,6 +10,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import pages.AuthorizationPage;
 import pages.LanguagePage;
 import pages.SearchPage;
 
@@ -19,10 +20,11 @@ public class TestBase {
 
     public SearchPage searchPage = new SearchPage();
     public LanguagePage languagePage = new LanguagePage();
+    AuthorizationPage authorizationPage = new AuthorizationPage();
     String deutsch = " Deutsch - ";
-    String zh = " 中文 (简体) - ";
-    String español =" español - ";
     String english =" English ";
+    String email="testemailforjob153@gmail.com";
+    String password = "cZ96X3!!!";
     @BeforeAll
     static void beforeAll() {
 
