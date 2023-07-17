@@ -24,7 +24,7 @@ public class TestBase {
     public SearchPage searchPage = new SearchPage();
     public LanguagePage languagePage = new LanguagePage();
     AuthorizationPage authorizationPage = new AuthorizationPage();
-    String deutsch = " Deutsch - ";
+    String deutsch = " Deutsch -";
     String english =" English ";
     String email="testemailforjob153@gmail.com";
     String password = "cZ96X3!!!";
@@ -41,10 +41,8 @@ public class TestBase {
         if (config.getRemoteURL() != null) {
             Configuration.remote = config.getRemoteURL();
             DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                    "enableVNC", true,
-                    "enableVideo", true
-            ));
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVideo", true);
             Configuration.browserCapabilities = capabilities;
         }
     }
@@ -55,13 +53,14 @@ public class TestBase {
         Selenide.clearBrowserCookies();
     }
 
+
     @AfterEach
-    void addAfter() {
+    void addAttachments() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
-        closeWebDriver();
+        Selenide.closeWindow();
     }
 
 }

@@ -15,6 +15,7 @@ public class Language extends TestBase {
             open("");
             languagePage.menu()
                     .language(deutsch)
+
                     ;
         });
     }

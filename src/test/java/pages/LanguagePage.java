@@ -1,22 +1,22 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LanguagePage {
-    private SelenideElement openMenu = $("#nav-hamburger-menu");
-    private SelenideElement languageChange = $("#hmenu-icp-language");
-    private SelenideElement language = $(".a-label.a-radio-label");
+    private SelenideElement openMenu = $("#icp-nav-flyout");
+    private SelenideElement language = $(".a-row.a-spacing-mini");
     public LanguagePage menu () {
         openMenu.click();
-        languageChange.click();
         return this;
     }
 
-    public LanguagePage language (String name) {
-        language.shouldHave(text(name)).click();
+    public LanguagePage language (String deutsch) {
+        language.shouldHave(Condition.attribute(deutsch)).click();
         return this;
     }
 
