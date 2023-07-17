@@ -5,7 +5,7 @@
     "environment": "qa.guru",
     "comment": "UI Autotests for amazon.com",
     "reportLink": "https://jenkins.autotests.cloud",
-    "language": "UA",
+    "language": "en",
     "allureFolder": "allure-report/",
     "enableChart": true
   },
