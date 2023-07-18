@@ -1,12 +1,11 @@
 package tests;
-
 import io.qameta.allure.selenide.AllureSelenide;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-
+import config.WebDriverConfig;
 import helpers.Attach;
-
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,6 +13,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.AuthorizationPage;
 import pages.LanguagePage;
 import pages.SearchPage;
+
+import java.util.Map;
+
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
@@ -21,25 +24,30 @@ public class TestBase {
     public SearchPage searchPage = new SearchPage();
     public LanguagePage languagePage = new LanguagePage();
     AuthorizationPage authorizationPage = new AuthorizationPage();
-    String email = "testemailforjob153@gmail.com";
+    String email="testemailforjob153@gmail.com";
     String password = "cZ96X3!!!";
-
     @BeforeAll
     static void beforeAll() {
-        Configuration.baseUrl = System.getProperty("baseUrl", "https://www.amazon.com");
-        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
-        Configuration.remote = System.getProperty("remote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-        Configuration.browserCapabilities = capabilities;
+        WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
+        Configuration.pageLoadStrategy = "eager";
+        Configuration.baseUrl = config.getBaseUrl();
+        Configuration.browser = config.getBrowser();
+        Configuration.browserVersion = config.getBrowserVersion();
+        Configuration.browserSize = config.getBrowserSize();
+        Configuration.timeout = 10000;
+
+        if (config.getRemoteURL() != null) {
+            Configuration.remote = config.getRemoteURL();
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVideo", true);
+            Configuration.browserCapabilities = capabilities;
+        }
     }
 
     @BeforeEach
     void addBefore() {
-        open("https://www.amazon.com");
+        open("");
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Selenide.clearBrowserCookies();
     }
