@@ -20,7 +20,7 @@ public class SearchTest extends TestBase {
     @CsvSource({
             "Health & Household, Vitamin B12",
             "Books, Fyodor Dostoyevsky: The Complete Novels",
-            "Home & Kitchen, Pillow",
+            "Home & Kitchen, Bed sheets full size cooling",
             "Kindle Store,The Summer I Turned Pretty"})
     void searchTestForm(
             String itemType,
