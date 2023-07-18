@@ -37,10 +37,11 @@ public class SearchTest extends TestBase {
         });
         step("Выбор найденного товара и добавление его в List", () -> {
             searchPage.choice()
-                      .addToList();
-            authorizationPage.authorization(email,password);
+                    .addToList();
+            authorizationPage.authorization(email, password);
         });
         step("Проверка запроса", () -> {
             searchPage.verifyResultsAll();
         });
-}}
+    }
+}

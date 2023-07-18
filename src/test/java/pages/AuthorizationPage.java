@@ -10,7 +10,7 @@ public class AuthorizationPage {
     private SelenideElement signInPassword = $("#ap_password");
     private SelenideElement buttonSignIn = $("#signInSubmit");
 
-    public AuthorizationPage authorization (String email, String password) {
+    public AuthorizationPage authorization(String email, String password) {
         signInEmail.setValue(email);
         buttonContinue.click();
         signInPassword.setValue(password);
