@@ -26,21 +26,21 @@ public class SearchTest extends TestBase {
             String itemType,
             String itemName) {
         open("");
-        step("Заполнить поля формы и нажать кнопку", () -> {
+        step("Fill in the form fields and click the button", () -> {
             searchPage
                     .dropdownBox(itemType)
                     .setName(itemName);
         });
-        step("Проверка запроса", () -> {
+        step("Request Validation", () -> {
             searchPage.verifyResults(itemName);
 
         });
-        step("Выбор найденного товара и добавление его в List", () -> {
+        step("Selecting the found product and adding it to the List", () -> {
             searchPage.choice()
                     .addToList();
             authorizationPage.authorization(email, password);
         });
-        step("Проверка запроса", () -> {
+        step("Request Validation", () -> {
             searchPage.verifyResultsAll();
         });
     }
