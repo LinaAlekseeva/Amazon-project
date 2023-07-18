@@ -11,12 +11,13 @@ public class Language extends TestBase {
     @Test
     @Tag("language")
     void changeSettings() {
-        step("Change language in settings", () -> {
+        step("Change language in settings into spanish", () -> {
             open("");
             languagePage.menu()
-                    .language(deutsch)
-
-                    ;
+                    .language();
+        });
+        step("Checking the page for a language change", () -> {
+            languagePage.verifyResultsChangeLanguage();
         });
     }
 }

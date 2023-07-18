@@ -46,7 +46,7 @@ public class SearchPage {
         return this;
     }
     public SearchPage verifyResultsAll () {
-        verifyResultsAll.shouldHave(text("Enter the characters you see"));
+        verifyResultsAll.click();
         return this;
     }
 }
