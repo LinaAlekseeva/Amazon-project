@@ -25,7 +25,6 @@ public class SearchTest extends TestBase {
     void searchTestForm(
             String itemType,
             String itemName) {
-        open("");
         step("Fill in the form fields and click the button", () -> {
             searchPage
                     .dropdownBox(itemType)

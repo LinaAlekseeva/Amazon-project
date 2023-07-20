@@ -14,6 +14,8 @@ import pages.AuthorizationPage;
 import pages.LanguagePage;
 import pages.SearchPage;
 
+import static com.codeborne.selenide.Selenide.open;
+
 
 public class TestBase {
 
@@ -43,6 +45,7 @@ public class TestBase {
 
     @BeforeEach
     void addBefore() {
+        open("https://www.amazon.com");
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Selenide.clearBrowserCookies();
     }
