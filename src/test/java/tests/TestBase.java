@@ -14,10 +14,6 @@ import pages.AuthorizationPage;
 import pages.LanguagePage;
 import pages.SearchPage;
 
-import java.util.Map;
-
-import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
 
@@ -47,7 +43,6 @@ public class TestBase {
 
     @BeforeEach
     void addBefore() {
-        open("");
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Selenide.clearBrowserCookies();
     }
