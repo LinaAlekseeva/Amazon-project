@@ -25,6 +25,7 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
+        open("https://www.amazon.com");
         Configuration.baseUrl = System.getProperty("baseUrl" ,"https://www.amazon.com");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.browser = System.getProperty("browser", "chrome");
@@ -37,7 +38,6 @@ public class TestBase {
     }
     @BeforeEach
     void addListenerAndOpenPage() {
-        open("https://www.amazon.com");
         SelenideLogger.addListener("allure", new AllureSelenide());
 
     }
