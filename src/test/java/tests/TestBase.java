@@ -3,7 +3,6 @@ import io.qameta.allure.selenide.AllureSelenide;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import config.WebDriverConfig;
 import helpers.Attach;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
@@ -26,28 +25,21 @@ public class TestBase {
     String password = "cZ96X3!!!";
     @BeforeAll
     static void beforeAll() {
-        WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.baseUrl = config.getBaseUrl();
-        Configuration.browser = config.getBrowser();
-        Configuration.browserVersion = config.getBrowserVersion();
-        Configuration.browserSize = config.getBrowserSize();
-        Configuration.timeout = 10000;
-
-        if (config.getRemoteURL() != null) {
-            Configuration.remote = config.getRemoteURL();
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("enableVNC", true);
-            capabilities.setCapability("enableVideo", true);
-            Configuration.browserCapabilities = capabilities;
-        }
+        Configuration.baseUrl = System.getProperty("baseUrl" ,"https://www.amazon.com");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
+        Configuration.remote = System.getProperty("remote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+        Configuration.browserCapabilities = capabilities;
     }
-
     @BeforeEach
-    void addBefore() {
+    void addListenerAndOpenPage() {
         open("https://www.amazon.com");
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        Selenide.clearBrowserCookies();
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
     }
 
 
@@ -57,6 +49,6 @@ public class TestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+        Selenide.closeWindow();
     }
-
 }
