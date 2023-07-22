@@ -4,7 +4,6 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import helpers.Attach;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,6 +22,7 @@ public class TestBase {
     AuthorizationPage authorizationPage = new AuthorizationPage();
     String email="testemailforjob153@gmail.com";
     String password = "cZ96X3!!!";
+
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = System.getProperty("baseUrl" ,"https://www.amazon.com");
