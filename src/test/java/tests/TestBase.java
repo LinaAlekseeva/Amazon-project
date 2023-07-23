@@ -43,6 +43,5 @@ public class TestBase {
         Attach.addVideo();
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Selenide.closeWebDriver();
     }
 }
