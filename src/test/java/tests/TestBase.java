@@ -1,4 +1,5 @@
 package tests;
+import com.codeborne.selenide.Selenide;
 import config.WebDriverConfig;
 import io.qameta.allure.selenide.AllureSelenide;
 import com.codeborne.selenide.Configuration;
@@ -31,6 +32,7 @@ public class TestBase {
             Configuration.browser = webDriverConfig.browser();
             Configuration.browserSize = webDriverConfig.browserSize();
             Configuration.browserVersion = webDriverConfig.browserVersion();
+            Configuration.remote = System.getProperty("remote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
 
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("enableVNC", true);
@@ -42,6 +44,7 @@ public class TestBase {
         public void addLogger() {
             open("https://www.amazon.com");
             SelenideLogger.addListener("allure", new AllureSelenide());
+            Selenide.clearBrowserCookies();
         }
 
         @AfterEach
