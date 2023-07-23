@@ -40,7 +40,7 @@ public class TestBase {
 
         @BeforeEach
         public void addLogger() {
-            open("");
+            open("https://www.amazon.com");
             SelenideLogger.addListener("allure", new AllureSelenide());
         }
 
