@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SearchPage {
     private SelenideElement textBox = $("#twotabsearchtextbox");
-    private SelenideElement dropdownBox = $("#nav-search-dropdown-card");
+    private SelenideElement dropdownBox = $("#searchDropdownBox");
     private SelenideElement box = $("#nav-search-bar-form");
     private SelenideElement searchButton = $("#nav-search-submit-button");
     private SelenideElement choiceProduct = $(".s-image");
