@@ -70,7 +70,6 @@ public class TestBase {
         }
         closeWebDriver();
         clearBrowserCookies();
-        clearBrowserLocalStorage();
     }
 
 }
