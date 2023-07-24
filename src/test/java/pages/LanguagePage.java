@@ -4,6 +4,7 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LanguagePage {
@@ -28,7 +29,7 @@ public class LanguagePage {
     }
 
     public LanguagePage verifyResultsChangeLanguage() {
-        checkHeader.equals("Iniciar sesión de forma segura");
+        checkHeader.shouldHave(text("Iniciar sesión de forma segura")).click();
         return this;
     }
 }
