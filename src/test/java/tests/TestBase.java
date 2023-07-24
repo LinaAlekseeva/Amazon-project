@@ -71,6 +71,7 @@ public class TestBase {
         }
         closeWebDriver();
         clearBrowserCookies();
+        sleep(1000);
     }
 
 }

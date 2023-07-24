@@ -17,7 +17,7 @@ public class SearchPage {
     private SelenideElement results = $(".a-size-medium-plus.a-color-base.a-text-bold");
     private SelenideElement verifyResultsSearchName = $(".a-color-state.a-text-bold");
     private SelenideElement addToList = $(".a-button-text.a-text-left");
-    private SelenideElement verifyResultsAll = $(".a-form-label");
+    private SelenideElement verifyResultsAll = $(".a-box-inner.a-padding-extra-large h1");
 
     public SearchPage dropdownBox(String itemType) {
         dropdownBox.click();
@@ -50,7 +50,7 @@ public class SearchPage {
     }
 
     public SearchPage verifyResultsAll() {
-        verifyResultsAll.equals("Type characters");
+        verifyResultsAll.equals("Sign in");
         return this;
     }
 }
