@@ -5,6 +5,7 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
 @Tag("search")
@@ -24,7 +25,7 @@ public class SearchTest extends TestBase {
     void searchTestForm(
             String itemType,
             String itemName) {
-
+        open("https://www.amazon.com");
         step("Fill in the form fields and click the button", () -> {
             searchPage
                     .dropdownBox(itemType)
