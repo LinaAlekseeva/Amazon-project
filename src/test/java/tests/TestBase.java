@@ -69,6 +69,7 @@ public class TestBase {
         }
         closeWebDriver();
         Configuration.timeout = 10000;
+        clearBrowserLocalStorage();
     }
 
 }
