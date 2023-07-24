@@ -59,7 +59,6 @@ public class TestBase {
     void addBefore() {
         open("https://www.amazon.com");
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        clearBrowserCookies();
 
     }
     @AfterEach
@@ -71,7 +70,7 @@ public class TestBase {
             Attach.addVideo();
         }
         closeWebDriver();
-        clearBrowserLocalStorage();
+        clearBrowserCookies();
     }
 
 }
