@@ -11,7 +11,6 @@ public class Language extends TestBase {
     @Test
     @Tag("language")
     void changeSettings() {
-        open("https://www.amazon.com");
         step("Change language in settings into spanish", () -> {
             languagePage.menu()
                     .language();
