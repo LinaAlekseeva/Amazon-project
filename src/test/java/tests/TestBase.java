@@ -69,7 +69,6 @@ public class TestBase {
             Attach.addVideo();
         }
         closeWebDriver();
-        clearBrowserLocalStorage();
     }
 
 }
