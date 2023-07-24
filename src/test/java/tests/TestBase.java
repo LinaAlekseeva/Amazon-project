@@ -68,8 +68,6 @@ public class TestBase {
             Attach.addVideo();
         }
         closeWebDriver();
-        Configuration.timeout = 10000;
-        clearBrowserLocalStorage();
         clearBrowserCookies();
     }
 
