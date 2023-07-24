@@ -60,6 +60,7 @@ public class TestBase {
         open("https://www.amazon.com");
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         clearBrowserCookies();
+        clearBrowserLocalStorage();
     }
     @AfterEach
     void addAfter() {
@@ -69,7 +70,6 @@ public class TestBase {
         if (remoteConfig.url() != null && remoteConfig.password() != null && remoteConfig.login() != null) {
             Attach.addVideo();
         }
-        clearBrowserCookies();
         closeWebDriver();
     }
 
