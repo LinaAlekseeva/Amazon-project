@@ -6,6 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.sleep;
 import static io.qameta.allure.Allure.step;
 
 @Tag("search")
@@ -30,6 +31,7 @@ public class SearchTest extends TestBase {
             searchPage
                     .dropdownBox(itemType)
                     .setName(itemName);
+            sleep(1000);
         });
         step("Request Validation", () -> {
             searchPage.verifyResults(itemName);
