@@ -79,7 +79,7 @@ public class TestBase {
     void addBefore() {
         open("https://www.amazon.com");
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-
+        sleep(1000);
     }
     @AfterEach
     void addAfter() {

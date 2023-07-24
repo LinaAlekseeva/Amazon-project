@@ -31,7 +31,6 @@ public class SearchTest extends TestBase {
             searchPage
                     .dropdownBox(itemType)
                     .setName(itemName);
-            sleep(1000);
         });
         step("Request Validation", () -> {
             searchPage.verifyResults(itemName);
