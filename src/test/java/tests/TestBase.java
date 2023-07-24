@@ -17,6 +17,7 @@ import pages.AuthorizationPage;
 import pages.LanguagePage;
 import pages.SearchPage;
 
+import java.net.*;
 import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -43,6 +44,24 @@ public class TestBase {
         Configuration.browserVersion = webDriverConfig.browserVersion();
         Configuration.browserSize = webDriverConfig.browserSize();
         Configuration.timeout = 10000;
+        try {
+            // instantiate CookieManager
+            CookieManager manager = new CookieManager();
+            CookieHandler.setDefault(manager);
+            CookieStore cookieJar =  manager.getCookieStore();
+
+            // create cookie
+            HttpCookie cookie = new HttpCookie("UserName", "John Doe");
+
+            // add cookie to CookieStore for a
+            // particular URL
+            URL url = new URL("https://www.amazon.com");
+            cookieJar.add(url.toURI(), cookie);
+            System.out.println("Added cookie using cookie handler");
+        } catch(Exception e) {
+            System.out.println("Unable to set cookie using CookieHandler");
+            e.printStackTrace();
+        }
 
         if (remoteConfig.url() != null && remoteConfig.password() != null && remoteConfig.login() != null) {
             Configuration.remote = String.format("https://%s:%s@%s/wd/hub", remoteConfig.login(), remoteConfig.password(), remoteConfig.url());
