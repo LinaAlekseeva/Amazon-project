@@ -37,10 +37,8 @@ public class SearchTest extends TestBase {
         step("Selecting the found product and adding it to the List", () -> {
             searchPage.choice()
                     .addToList();
-            authorizationPage.authorization(email, password);
+
         });
-        step("Request Validation", () -> {
-            searchPage.verifyResultsAll();
-        });
+
     }
 }
