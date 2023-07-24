@@ -10,11 +10,15 @@ import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.AuthorizationPage;
 import pages.LanguagePage;
 import pages.SearchPage;
 
+import java.util.Date;
 import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -41,6 +45,13 @@ public class TestBase {
         Configuration.browserVersion = webDriverConfig.browserVersion();
         Configuration.browserSize = webDriverConfig.browserSize();
         Configuration.timeout = 10000;
+        // Создаем cookie
+        Cookie COOKIE = new Cookie("session-id", "131-4072731-7953057", ".amazon.com", "/", new Date("2024-07-23T09:47:17.507Z"));
+        // Создаем браузер
+        WebDriver driver;
+        driver = new ChromeDriver();
+        // Добавляем cookie в браузер
+        driver.manage().addCookie(COOKIE);
 
         if (remoteConfig.url() != null && remoteConfig.password() != null && remoteConfig.login() != null) {
             Configuration.remote = String.format("https://%s:%s@%s/wd/hub", remoteConfig.login(), remoteConfig.password(), remoteConfig.url());
@@ -57,7 +68,7 @@ public class TestBase {
     void addBefore() {
         open("https://www.amazon.com");
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        Selenide.clearBrowserCookies();
+
     }
     @AfterEach
     void addAfter() {
