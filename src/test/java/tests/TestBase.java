@@ -59,7 +59,6 @@ public class TestBase {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Selenide.clearBrowserCookies();
     }
-
     @AfterEach
     void addAfter() {
         Attach.screenshotAs("Last screenshot");
@@ -69,6 +68,7 @@ public class TestBase {
             Attach.addVideo();
         }
         closeWebDriver();
+        Configuration.timeout = 10000;
     }
 
 }
