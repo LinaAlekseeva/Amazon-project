@@ -17,7 +17,7 @@ import pages.SearchPage;
 
 import java.util.Map;
 
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 
 public class TestBase {
@@ -68,6 +68,9 @@ public class TestBase {
         if (remoteConfig.url() != null && remoteConfig.password() != null && remoteConfig.login() != null) {
             Attach.addVideo();
         }
+        closeWebDriver();
+        clearBrowserCookies();
+        clearBrowserLocalStorage();
     }
 
 }
