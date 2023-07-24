@@ -72,6 +72,7 @@ public class TestBase {
             ));
             Configuration.browserCapabilities = capabilities;
         }
+        clearBrowserCookies();
     }
 
     @BeforeEach
@@ -89,7 +90,6 @@ public class TestBase {
             Attach.addVideo();
         }
         closeWebDriver();
-        clearBrowserCookies();
         sleep(1000);
     }
 
