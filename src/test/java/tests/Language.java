@@ -12,6 +12,7 @@ public class Language extends TestBase {
     @Tag("language")
     void changeSettings() {
         step("Change language in settings into spanish", () -> {
+            open("");
             languagePage.menu()
                     .language();
         });
