@@ -89,7 +89,7 @@ public class TestBase {
             Attach.addVideo();
         }
         closeWebDriver();
-        sleep(1000);
+        
     }
 
 }
