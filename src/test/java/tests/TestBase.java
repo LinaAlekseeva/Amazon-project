@@ -29,7 +29,7 @@ public class TestBase {
     public LanguagePage languagePage = new LanguagePage();
     AuthorizationPage authorizationPage = new AuthorizationPage();
     String email="testemailforjob153@gmail.com";
-    String password = "cZ96X3!!!";
+    String password = "";
 
     private static final WebDriverConfig webDriverConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
     public static RemoteConfig remoteConfig = ConfigFactory.create(RemoteConfig.class, System.getProperties());
